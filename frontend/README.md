@@ -1,8 +1,8 @@
 # Frontend
 
-Frontend cua Parking Building Management System duoc xay dung bang React va Vite. Ung dung cung cap giao dien cho User, Staff, Manager va Admin.
+This is the frontend application for the Parking Building Management System. It provides role-based user interfaces for users, staff, managers, and administrators.
 
-## Cong nghe
+## Tech Stack
 
 - React
 - Vite
@@ -14,59 +14,63 @@ Frontend cua Parking Building Management System duoc xay dung bang React va Vite
 - QR code
 - XLSX export/import
 
-## Cau truc chinh
+## Main Structure
 
 ```text
 src
-|-- assets/      # Anh va CSS
-|-- components/  # Component dung chung
-|-- config/      # Cau hinh API va permission
-|-- context/     # Auth context
-|-- pages/       # Man hinh theo role
+|-- assets/      # Images and CSS files
+|-- components/  # Shared UI components
+|-- config/      # API and permission configuration
+|-- context/     # Authentication context
+|-- pages/       # Role-based pages
 `-- utils/       # Helper functions
 ```
 
-## Cau hinh API
+## API Configuration
 
-Mac dinh frontend goi API tai:
+By default, the frontend calls the backend API at:
 
 ```text
 http://localhost:8080/api
 ```
 
-Co the thay doi bang bien moi truong:
+You can override it with this environment variable:
 
 ```text
 VITE_API_BASE_URL=http://localhost:8080/api
 ```
 
-Trong moi truong dev, Vite cung cau hinh proxy `/api` sang backend `http://localhost:8080`.
+In development, Vite also proxies `/api` requests to:
 
-## Cai dat
+```text
+http://localhost:8080
+```
+
+## Install Dependencies
 
 ```powershell
 npm install
 ```
 
-## Chay local
+## Run Locally
 
 ```powershell
 npm run dev
 ```
 
-Ung dung mac dinh chay tai:
+The frontend runs by default at:
 
 ```text
 http://localhost:5173
 ```
 
-## Build production
+## Build For Production
 
 ```powershell
 npm run build
 ```
 
-Thu muc build:
+Build output:
 
 ```text
 dist/
