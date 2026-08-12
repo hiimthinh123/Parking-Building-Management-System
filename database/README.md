@@ -1,40 +1,41 @@
 # Database
 
-Thu muc nay dung de luu tai lieu, script khoi tao, backup mau hoac ghi chu lien quan den database cua Parking Building Management System.
+This folder contains database documentation, initialization scripts, sample data, and database-related notes for the Parking Building Management System.
 
-## Cac file SQL
+## SQL Files
 
-- `schema.sql`: tao bang, index, default, unique constraint va foreign key.
-- `seed.sql`: du lieu nen bat buoc de app chay, gom role, permission, user mau, loai xe, tang, slot va bang gia.
-- `sample-data.sql`: du lieu demo/test nhu booking, parking session, payment, feedback va incident report.
+- `schema.sql`: creates tables, indexes, default values, unique constraints, and foreign keys.
+- `seed.sql`: inserts required base data for the application, including roles, permissions, sample users, vehicle types, floors, slots, and pricing policies.
+- `sample-data.sql`: inserts optional demo/test data such as bookings, parking sessions, payments, feedback, and incident reports.
 
-## He quan tri
+## Database System
 
-Du an su dung Microsoft SQL Server.
+The project uses Microsoft SQL Server.
 
-Database mac dinh trong file cau hinh mau:
+Default database name used in the sample configuration:
 
 ```text
 system_database
 ```
 
-Chuoi ket noi mau:
+Sample connection string:
 
 ```text
 jdbc:sqlserver://localhost:1433;databaseName=system_database;encrypt=true;trustServerCertificate=true;
 ```
 
-## Cach chuan bi database local
+## Local Database Setup
 
-1. Cai SQL Server va SQL Server Management Studio hoac Azure Data Studio.
-2. Tao database:
+1. Install SQL Server and SQL Server Management Studio or Azure Data Studio.
+
+2. Create the database:
 
 ```sql
 CREATE DATABASE system_database;
 GO
 ```
 
-3. Cap nhat bien moi truong backend:
+3. Update backend environment variables:
 
 ```text
 DB_URL=jdbc:sqlserver://localhost:1433;databaseName=system_database;encrypt=true;trustServerCertificate=true;
@@ -42,7 +43,7 @@ DB_USERNAME=your_database_username
 DB_PASSWORD=your_database_password
 ```
 
-4. Chay lan luot cac file SQL:
+4. Run the SQL files in this order:
 
 ```text
 schema.sql
@@ -50,17 +51,19 @@ seed.sql
 sample-data.sql
 ```
 
-`sample-data.sql` la tuy chon, chi can chay khi muon co du lieu demo.
+`sample-data.sql` is optional and should only be used when demo data is needed.
 
-5. Chay backend. Hibernate se tao/cap nhat bang theo entity vi cau hinh hien tai la:
+5. Run the backend application.
+
+The current backend configuration uses:
 
 ```text
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-## Khuyen nghi
+## Recommendations
 
-- Khong commit file backup database lon vao Git.
-- Dat script SQL tai thu muc nay neu can seed data hoac migrate thu cong.
-- Sao luu du lieu truoc khi thay doi schema.
-- Voi moi truong production, nen dung migration tool nhu Flyway hoac Liquibase thay cho `ddl-auto=update`.
+- Do not commit large database backup files to Git.
+- Store SQL seed or migration scripts in this folder.
+- Back up real data before changing the schema.
+- For production environments, consider using Flyway or Liquibase instead of `ddl-auto=update`.
