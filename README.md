@@ -1,11 +1,9 @@
 # Parking Building Management System
 
-He thong quan ly bai do xe trong toa nha, gom ung dung web cho nguoi dung, nhan vien, quan ly va quan tri vien.
+Hệ thống quản lý bãi đỗ xe trong tòa nhà, gồm web cho người dùng, khách vãng lai, nhân viên, quản lý và quản trị viên
+## Tổng quan
 
-## Tong quan
-
-Du an ho tro cac nghiep vu chinh cua bai do xe: dat cho, theo doi cho trong, check-in/check-out, thanh toan, quan ly gia, bao cao su co, phan quyen va thong bao thoi gian thuc.
-
+Dự án hỗ trợ các nghiệp vụ chính của bãi đỗ xe: đặt chỗ, theo dõi chỗ trống, check-in/check-out, thanh toán, quản lý giá, báo cáo sự cố, phân quyền và thông báo thời gian thực
 ## Tech stack
 
 - Backend: Java 17, Spring Boot, Spring Security, Spring Data JPA, JWT, WebSocket/STOMP
@@ -13,36 +11,34 @@ Du an ho tro cac nghiep vu chinh cua bai do xe: dat cho, theo doi cho trong, che
 - Database: Microsoft SQL Server
 - Tich hop: PayOS, Cloudinary, Google OAuth, Plate Recognizer
 
-## Cau truc thu muc
-
+## Cấu trúc thư mục
 ```text
 .
 |-- backend/    # REST API, business logic, security, JPA entities
 |-- frontend/   # React/Vite web app
-|-- database/   # Huong dan va tai nguyen database
-|-- docs/       # Tai lieu bo sung
+|-- database/   # Hướng dẫn và tài nguyên database
+|-- docs/       # Tài liệu bổ sung
 |-- README.md
 |-- .gitignore
 `-- LICSENSE
 ```
 
-## Chay nhanh local
+## Chạy nhanh local
 
-1. Cai dat yeu cau:
+1. Cài đặt yêu cầu:
    - Java 17+
    - Maven 3.9+
    - Node.js 20+
    - SQL Server
 
-2. Cau hinh backend:
+2. Cấu hình backend:
 
 ```powershell
 cd backend
 Copy-Item application-example.properties .env
 ```
 
-Cap nhat cac gia tri database va API key trong file cau hinh moi tao, hoac set bien moi truong tuong ung.
-
+Cập nhật các giá trị database và API key trong file cấu hình mới tạo, hoặc set biến mỗi trường tương ứng
 3. Chay backend:
 
 ```powershell
@@ -50,9 +46,9 @@ cd backend
 mvn spring-boot:run
 ```
 
-Backend mac dinh chay tai `http://localhost:8080`.
+Backend mặc định chạy tại `http://localhost:8080`.
 
-4. Chay frontend:
+4. Chạy frontend:
 
 ```powershell
 cd frontend
@@ -60,9 +56,9 @@ npm install
 npm run dev
 ```
 
-Frontend mac dinh chay tai `http://localhost:5173`.
+Frontend mặc định chạy tại `http://localhost:5173`.
 
-## Tai lieu tung phan
+## Tài liệu từng phần
 
 - [Backend README](backend/README.md)
 - [Frontend README](frontend/README.md)
@@ -70,8 +66,7 @@ Frontend mac dinh chay tai `http://localhost:5173`.
 
 ## API docs
 
-Khi backend dang chay, Swagger UI co the truy cap tai:
-
+Khi backend đang chạy, Swagger UI có thể truy cập tại:
 ```text
 http://localhost:8080/swagger-ui.html
 ```
