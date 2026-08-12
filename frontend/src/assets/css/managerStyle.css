@@ -1,0 +1,78 @@
+
+:root {
+    --sidebar-width: 260px;
+    --primary-color: #2c3e50;
+    --accent-color: #1abc9c;
+}
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* Sidebar Layout */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding-top: 20px;
+    z-index: 100;
+}
+.sidebar .nav-link {
+    color: #acc4d6;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 24px !important;
+}
+
+/* Main Content Layout */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 30px;
+}
+/* Thẻ trạng thái nhanh (Stat Cards) */
+.stat-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+/* Giả lập lưới hiển thị Slot xe */
+.slot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 12px;
+}
+.slot-box {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.slot-code {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.slot-available { background-color: #2ecc71; } /* Trống */
+.slot-occupied { background-color: #e74c3c; }  /* Có xe */
+.slot-reserved { background-color: #f1c40f; color: #333; } /* Đặt trước */
+.slot-maintenance { background-color: #95a5a6; } /* Bảo trì */
