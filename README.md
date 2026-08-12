@@ -1,54 +1,62 @@
 # Parking Building Management System
 
-Hệ thống quản lý bãi đỗ xe trong tòa nhà, gồm web cho người dùng, khách vãng lai, nhân viên, quản lý và quản trị viên
-## Tổng quan
+A web-based parking building management system for registered users, walk-in guests, staff, managers, and administrators.
 
-Dự án hỗ trợ các nghiệp vụ chính của bãi đỗ xe: đặt chỗ, theo dõi chỗ trống, check-in/check-out, thanh toán, quản lý giá, báo cáo sự cố, phân quyền và thông báo thời gian thực
-## Tech stack
+## Overview
+
+This project supports the main operations of a building parking system, including parking reservations, slot availability tracking, vehicle check-in/check-out, payments, pricing management, incident reporting, role-based access control, and real-time notifications.
+
+## Tech Stack
 
 - Backend: Java 17, Spring Boot, Spring Security, Spring Data JPA, JWT, WebSocket/STOMP
 - Frontend: React, Vite, Axios, React Router, Chart.js
 - Database: Microsoft SQL Server
-- Tich hop: PayOS, Cloudinary, Google OAuth, Plate Recognizer
+- Integrations: PayOS, Cloudinary, Google OAuth, Plate Recognizer
 
-## Cấu trúc thư mục
+## Project Structure
+
 ```text
 .
 |-- backend/    # REST API, business logic, security, JPA entities
 |-- frontend/   # React/Vite web app
-|-- database/   # Hướng dẫn và tài nguyên database
-|-- docs/       # Tài liệu bổ sung
+|-- database/   # Database documentation and resources
+|-- docs/       # Additional documentation
 |-- README.md
 |-- .gitignore
 `-- LICSENSE
 ```
 
-## Chạy nhanh local
+## Quick Local Setup
 
-1. Cài đặt yêu cầu:
+1. Install the required tools:
    - Java 17+
    - Maven 3.9+
    - Node.js 20+
    - SQL Server
 
-2. Cấu hình backend:
+2. Configure the backend:
 
 ```powershell
 cd backend
 Copy-Item application-example.properties .env
 ```
 
-Cập nhật các giá trị database và API key trong file cấu hình mới tạo, hoặc set biến mỗi trường tương ứng
-3. Chay backend:
+Update the database values and API keys in the newly created configuration file, or set the corresponding environment variables.
+
+3. Run the backend:
 
 ```powershell
 cd backend
 mvn spring-boot:run
 ```
 
-Backend mặc định chạy tại `http://localhost:8080`.
+The backend runs by default at:
 
-4. Chạy frontend:
+```text
+http://localhost:8080
+```
+
+4. Run the frontend:
 
 ```powershell
 cd frontend
@@ -56,21 +64,26 @@ npm install
 npm run dev
 ```
 
-Frontend mặc định chạy tại `http://localhost:5173`.
+The frontend runs by default at:
 
-## Tài liệu từng phần
+```text
+http://localhost:5173
+```
+
+## Documentation
 
 - [Backend README](backend/README.md)
 - [Frontend README](frontend/README.md)
 - [Database README](database/README.md)
 
-## API docs
+## API Documentation
 
-Khi backend đang chạy, Swagger UI có thể truy cập tại:
+When the backend is running, Swagger UI can be accessed at:
+
 ```text
 http://localhost:8080/swagger-ui.html
 ```
 
 ## License
 
-Xem file [LICSENSE](LICSENSE).
+See [LICSENSE](LICSENSE).
