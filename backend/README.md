@@ -1,8 +1,8 @@
 # Backend
 
-Backend cua Parking Building Management System duoc xay dung bang Java 17 va Spring Boot. Phan nay cung cap REST API, xac thuc JWT, phan quyen, quan ly bai do xe, thanh toan, upload anh va thong bao realtime.
+This is the backend service for the Parking Building Management System. It provides REST APIs, JWT authentication, role-based authorization, parking operations, payment handling, image upload support, and real-time notifications.
 
-## Cong nghe
+## Tech Stack
 
 - Java 17
 - Spring Boot 4.1.0
@@ -15,29 +15,33 @@ Backend cua Parking Building Management System duoc xay dung bang Java 17 va Spr
 - Swagger/OpenAPI
 - PayOS, Cloudinary, Google OAuth, Plate Recognizer
 
-## Cau truc chinh
+## Main Structure
 
 ```text
 src/main/java/com/parking/management
 |-- api/         # REST controllers
-|-- config/      # Cau hinh Spring, CORS, Security, WebSocket, Cloudinary
+|-- config/      # Spring, CORS, Security, WebSocket, Cloudinary configuration
 |-- entity/      # JPA entities
 |-- repository/  # Spring Data repositories
-|-- security/    # JWT provider va auth filter
-`-- service/     # Business services va implementations
+|-- security/    # JWT provider and authentication filter
+`-- service/     # Business services and implementations
 ```
 
-## Cau hinh
+## Configuration
 
-Backend doc cau hinh tu bien moi truong trong `src/main/resources/application.properties`.
+The backend reads configuration values from environment variables in:
 
-Tham khao file mau:
+```text
+src/main/resources/application.properties
+```
+
+Use this sample file as a reference:
 
 ```text
 application-example.properties
 ```
 
-Bien can co:
+Required variables:
 
 ```text
 DB_URL
@@ -53,7 +57,7 @@ PAYOS_CHECKSUM_KEY
 PLATE_RECOGNIZER_API_KEY
 ```
 
-Vi du SQL Server:
+Example SQL Server connection:
 
 ```text
 DB_URL=jdbc:sqlserver://localhost:1433;databaseName=system_database;encrypt=true;trustServerCertificate=true;
@@ -61,13 +65,13 @@ DB_USERNAME=sa
 DB_PASSWORD=your_password
 ```
 
-## Chay local
+## Run Locally
 
 ```powershell
 mvn spring-boot:run
 ```
 
-Ung dung mac dinh chay tai:
+The backend runs by default at:
 
 ```text
 http://localhost:8080
@@ -79,12 +83,18 @@ Swagger UI:
 http://localhost:8080/swagger-ui.html
 ```
 
-## Kiem thu
+## Tests
 
 ```powershell
 mvn test
 ```
 
-## Ghi chu database
+## Database Note
 
-`spring.jpa.hibernate.ddl-auto=update` dang duoc cau hinh de Hibernate tu dong cap nhat schema khi ung dung chay. Nen sao luu database truoc khi chay voi du lieu that.
+The current configuration uses:
+
+```text
+spring.jpa.hibernate.ddl-auto=update
+```
+
+This allows Hibernate to update the schema automatically when the application starts. Back up the database before running this configuration with real data.
